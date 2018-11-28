@@ -1,0 +1,14 @@
+version: '3'
+services:
+  tor_service:
+    container_name: tor-service
+    build: .
+    environment:
+    - HIDDEN_SERVICE_HOST=jenkins
+    - HIDDEN_SERVICE_PORT=8080
+    depends_on:
+    - jenkins
+  jenkins:
+    container_name: jenkins
+    image: bobcrutchley/jenkins
+
