@@ -3,8 +3,8 @@
 A solution in Docker for deploying a single service on to the Tor network 
 Jenkins has been included as an example
 
-Securely accessing a service you have deployed can be done a few ways such as SSH tunneling and setting up domain names and certifates.
-Hosting through Tor is a free alternative, with the only downside being the connection speeds.
+Securely accessing a service you have deployed can be done a few ways such as SSH tunneling and setting up domain names and certificates.
+SSH tunneling aside, hosting through Tor is a free alternative, with the only downside being the connection speeds.
 
 All configuration can be done through the `docker-compose.yml`
 
