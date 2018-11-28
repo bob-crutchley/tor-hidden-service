@@ -8,7 +8,7 @@ SSH tunneling aside, hosting through Tor is a free alternative, with the only do
 
 All configuration can be done through the `docker-compose.yml`
 
-Configuration example; Jenkins (included in the project):
+### Configuration example; Jenkins (included in the project):
 - Add the service to the `docker-compose.yml`
 ```yaml
   jenkins:
