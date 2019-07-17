@@ -1,7 +1,7 @@
 # docker-tor-service
 
 A solution in Docker for deploying a single service on to the Tor network  
-Jenkins has been included as an example
+NGINX has been included as an example
 
 Securely accessing a service you have deployed can be done a few ways such as SSH tunneling and setting up domain names and certificates.
 SSH tunneling aside, hosting through Tor is a free alternative, with the only downside being the connection speeds.
@@ -15,15 +15,15 @@ docker-compose up -d
 ```bash
 docker exec tor-service cat /var/lib/tor/hidden_service/hostname
 ```
-### Configuration example; Jenkins (included in the project):
+### Configuration example; NGINX (included in the project):
 
 All configuration can be done through the `docker-compose.yml`
 
 - Add the service to the `docker-compose.yml`
 ```yaml
-  jenkins:
-    container_name: jenkins
-    image: bobcrutchley/jenkins
+  hidden-service:
+    container_name: nginx
+    image: nginx:latest
 ```
 - Configure the Tor Service container to connect to the service you would like to host
 ```yaml
@@ -31,8 +31,8 @@ All configuration can be done through the `docker-compose.yml`
     container_name: tor-service
     build: .
     environment:
-    - HIDDEN_SERVICE_HOST=jenkins
-    - HIDDEN_SERVICE_PORT=8080
+    - HIDDEN_SERVICE_HOST=hidden-service
+    - HIDDEN_SERVICE_PORT=80
     depends_on:
-    - jenkins
+    - hidden-service
 ```
