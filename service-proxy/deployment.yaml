@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hidden-service-proxy
+  labels: 
+    app: hidden-service-proxy
+spec:
+  selector:
+    matchLabels:
+      app: hidden-service-proxy
+  template:
+    metadata:
+      labels:
+        app: hidden-service-proxy
+    spec:
+      containers:
+      - name: hidden-service-proxy
+        image: bobcrutchley/hidden-service-proxy:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config

@@ -1,6 +1,5 @@
 FROM alpine:latest
-RUN apk update
-RUN apk add tor nginx
+RUN apk update && apk add tor nginx
 RUN rm -f /etc/tor/torrc*
 COPY ./torrc /etc/tor/torrc
 COPY ./nginx.conf /etc/nginx/nginx.conf

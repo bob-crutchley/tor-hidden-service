@@ -1,7 +1,8 @@
 version: '3'
 services:
-  tor-service:
-    build: .
+  service-proxy:
+    image: bobcrutchley/hidden-service-proxy
+    build: ./service-proxy
     environment:
     - HIDDEN_SERVICE_HOST=hidden-service
     - HIDDEN_SERVICE_PORT=80

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hidden-service
+  labels: 
+    app: hidden-service
+spec:
+  selector:
+    matchLabels:
+      app: hidden-service
+  template:
+    metadata:
+      labels:
+        app: hidden-service
+    spec:
+      containers:
+      - name: hidden-service
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
